@@ -46,6 +46,7 @@
             <h1>Rome</h1>
             <form action="./rome.php" method="">
             <button class="btngo">Go</button>
+          </form>
           </div>
         </div>
 
@@ -53,7 +54,9 @@
           <img class="radius" src="./img/tunisie.jpg" width="286px" alt="">
           <div class="drapeauxt">
             <h1>Tunis</h1>
+            <form action="./tunisie.php" method="">
             <button class="btngo">Go</button>
+          </form>
           </div>
         </div>
 
@@ -61,14 +64,18 @@
           <img class="radius" src="./img/monaco.jpg" width="286px" alt="">
           <div class="drapeauxm">
           <h1>Monaco</h1>
-          <button class="btngo">Go</button>
+          <form action="./monaco.php" method="">
+            <button class="btngo">Go</button>
+          </form>
         </div>
         </div>
         <div class="card4">
           <img class="radius" src="./img/londres.jpg" width="286px" alt="">
           <div class="drapeauxl">
           <h1>Londres</h1>
-          <button class="btngo">Go</button>
+          <form action="./londres.php" method="">
+            <button class="btngo">Go</button>
+          </form>
         </div>
       </div>
       </div>
