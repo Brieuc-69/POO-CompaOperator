@@ -18,7 +18,7 @@
 
       <nav>
         <ul>
-          <li>Accueil</li>
+        <a href="./accueil.php" class="accueil"><li>Accueil</li></a> 
           <li></li>
           <li></li>
           <li></li>

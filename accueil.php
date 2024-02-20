@@ -19,7 +19,7 @@
     <nav>
       <ul>
         <li>Services</li>
-        <li>Tours Opérateur</li>
+        <a href="./avis.php"><li>Tours Opérateur</li></a>
         <li>Déconnexion</li>
         <li></li>
         <li></li>
