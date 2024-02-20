@@ -1,9 +1,22 @@
+
 <?php
-// Gère la connexion à la base de données avec une instance de PDO, similaire à la correction du QCM.
-try {
-    $db = new PDO('mysql:host=localhost;dbname=voyage', 'root', '');
-} catch (PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
+//  Permet le chargement automatique des classes et configure PHP pour avoir de meilleurs messages d’erreurs.
+
+// Strict
+
+
+// Enable all PHP errors
+
+
+// Autoload logic
+
+function chargerClasse($classname)
+{
+    require 'class/' . $classname . '.php';
 }
+spl_autoload_register('chargerClasse');
+
+// Session
+session_start();
 
 ?>

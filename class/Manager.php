@@ -1,22 +1,26 @@
 <?php
 
-class Manager {
+class Manager
+{
 
     private $bdd;
 
 
-    public function __construct($bdd) {
+    public function __construct($bdd)
+    {
         $this->bdd = $bdd;
     }
 
-    function getAllDestination(){
+    function getAllDestination()
+    {
 
         $request = $this->bdd->query('SELECT * FROM destination');
         $destinations = $request->fetchAll();
         return $destinations;
     }
 
-    function getOperatorByDestination(){
+    function getOperatorByDestination($destinationId)
+    {
 
         $request = $this->bdd->prepare('SELECT * FROM tour_operator WHERE destinationId = :destinationId');
         $request->execute(array(
@@ -24,13 +28,13 @@ class Manager {
         ));
         $tourOperators = $request->fetchAll();
         return $tourOperators;
-
     }
 
-  
 
 
-    function createReview($data){
+
+    function createReview($data)
+    {
         $request = $this->bdd->prepare('INSERT INTO review(location, price, tourOperatorId) VALUES(:location, :price, :tourOperatorId)');
         $request->execute(array(
             'location' => $data['location'],
@@ -39,7 +43,8 @@ class Manager {
         ));
     }
 
-    public function getReviewByOperatorByOperatorid($id) {
+    public function getReviewByOperatorByOperatorid($id)
+    {
 
         $request = $this->bdd->prepare('SELECT * FROM review WHERE tour_operator_id = :id');
         $request->execute([
@@ -49,62 +54,44 @@ class Manager {
         $reviews = $request->fetchAll();
 
         return $reviews;
-    
     }
-    
 
-    function getAllOperator(){
+
+    function getAllOperator()
+    {
 
         $request = $this->bdd->query('SELECT * FROM tour_operator');
         $tourOperators = $request->fetchAll();
         return $tourOperators;
-    
-    
-    }
-    
-    public function updateOperatorToPremium() {
-
-        function updateOperatorToPremium(){
-
-            $req = $this->bdd->prepare('UPDATE tour_operator SET isPremium = 1 WHERE id = :id');
-            $req->execute(array(
-                'id' => $id
-            ));
-        
-        }
-
     }
 
-    function createTourOperator(){
+    public function updateOperatorToPremium($id)
+    {
+        $request = $this->bdd->prepare('UPDATE tour_operator SET isPremium = 1 WHERE id = :id');
+        $request->execute(array(
+            'id' => $id
+        ));
+    }
+
+    function createTourOperator(TourOperator $tourOperator)
+    {
 
         $request = $this->bdd->prepare('INSERT INTO tour_operator(name, grade, link, isPremium, destinationId) VALUES(:name, :grade, :link, :isPremium, :destinationId)');
         $request->execute(array(
-            'name' => $data['name'],
-            'grade' => $data['grade'],
-            'link' => $data['link'],
-            'isPremium' => $data['isPremium'],
-            'destinationId' => $data['destinationId']
+            'name' => $tourOperator->getName(),
+            'grade_count' => $tourOperator->getGradeCount(),
+            'link' => $tourOperator->getLink(),
+            'isPremium' => $tourOperator->getIsPremium(),
+            
         ));
-    
-    
     }
 
-    public function crateDestination() {
+    public function crateDestination($data)
+    {
 
-         function createDestination(){
-
-
-            $req = $this->bdd->prepare('INSERT INTO destination(name) VALUES(:name)');
-            $req->execute(array(
-                'name' => $data['name']
-            ));
-        
-        
-        }
-
+        $request = $this->bdd->prepare('INSERT INTO destination(name) VALUES(:name)');
+        $request->execute(array(
+            'name' => $data['name']
+        ));
     }
-        
-    
 }
-
-?>
