@@ -15,7 +15,7 @@ $destination = new Destination([
 ]);
 
 $destination = new Manager($destination);
-$manager->createDestination($destination);
+$manager->createDestination($destination)
 
 
 
