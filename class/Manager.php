@@ -19,6 +19,15 @@ class Manager
         return $destinations;
     }
 
+    public function getDestinationById($id) {
+       $request=$this->bdd->prepare('SELECT * FROM destination WHERE id = :id');
+       $request->execute(array(
+        'id' => $id
+    ));
+    $destination = $request->fetch();
+    return $destination;
+    }
+
     function getOperatorByDestination($destinationId)
     {
 

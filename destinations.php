@@ -1,3 +1,13 @@
+<?php 
+require_once('./config/autoload.php');
+require_once('./config/db.php');
+$manager = new Manager($db);
+$destination = $manager->getDestinationById($_GET['id']);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,32 +15,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css" />
-  <title>Document</title>
+  <title>Destination</title>
 </head>
 
 <body>
-  <header>
-    <header id="header">
-      <div>
+<header id="header">
+<nav id="nav" class="active">
 
-        <img class="imglogo" src="./img/travel.jpg" alt="" />
-      </div>
+  <img src="./img/travel.jpg" alt="">
+  <h1><?php echo $destination['location']?></h1>
 
-      <nav>
-        <ul>
-        <a href="./accueil.php" class="accueil"><li>Accueil</li></a> 
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </nav>
-
-    </header>
+  <ul>
+    <li><a class="a" href="">Services</a></li>
+    <li><a class="a"href="./avis.php">Tours Opérateur</a></li>
+    <li><a class="a"href="">Déconnexion</a></li>
+  </ul>
+  <div id="icons"></div>
+</nav>
 
 
+</header>
+
+
+<div class="mobile">
+<div id="nav-mobile-hidden" class="nav-mobile-hidden">
+
+  <ul>
+    <li><a href="">Services</a></li>
+    <li><a href="./avis.php">Tours Opérateur</a></li>
+    <li><a href="">Déconnexion</a></li>
+  </ul>
+</div>
+</div>
 
     <main>
       <section id="fond">

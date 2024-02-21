@@ -49,19 +49,19 @@
     </div>
 </div>
 <div class="divform">
-<form action="/ma-page-de-traitement" method="post">
+<form class="formavis" action="/ma-page-de-traitement" method="post">
   <ul>
     <li>
 
-      <input type="text" placeholder="Nom" id="name" name="user_name" />
+      <input class="inputavis" type="text" placeholder="Nom" id="name" name="user_name" />
     </li>
     <li>
 
-      <input type="email" placeholder="E-mail" id="mail" name="user_mail" />
+      <input class="inputavis type="email" placeholder="E-mail" id="mail" name="user_mail" />
     </li>
     <li>
 
-      <textarea id="msg" placeholder="Message" name="user_message"></textarea>
+      <textarea class="textareaavis" id="msg" placeholder="Message" name="user_message"></textarea>
       
     </li>
     <li>
@@ -76,5 +76,6 @@
 
     </main>
     <footer></footer>
+    <script src="./main.js"></script>
 </body>
 </html>
