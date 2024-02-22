@@ -91,4 +91,12 @@ class Manager
             'name' => $data['name']
         ));
     }
+    public function getDestinationById($id) {
+        $request = $this->bdd->prepare('SELECT * FROM destination WHERE id = :id ');
+        $request->execute(array(
+            'id' => $id,
+        ));
+        $destinations = $request->fetch();
+        return $destinations;
+    }
 }
