@@ -93,4 +93,8 @@ class Manager
             'name' => $data['name']
         ));
     }
+
+    public function getDestinationById($id) {
+        $request = $this->bdd>prepare('SELECT * FROM destination WHERE location = :id')
+    }
 }
