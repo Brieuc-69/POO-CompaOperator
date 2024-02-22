@@ -1,10 +1,13 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+li {
+  list-style: none;
 }
 
 #connexion {
@@ -46,32 +49,115 @@ body {
   width: 100%;
 
   img {
-    height: 80px;
-    margin-top: 3%;
+    height: 60px;
+
     margin-left: 150px;
     border: 1px solid white;
     border-radius: 100px;
     margin-right: 100px;
   }
-
+  a {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  a:visited {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a:hover {
+    color: black;
+  }
   nav {
-    margin-top: 40px;
-    
-
-    ul {
+    background: rgba(139, 210, 239, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: calc(0.5rem + 1.5vw);
+    width: 100%;
+ul {
       display: flex;
-      list-style: none;
-      gap: 10px 20px;
-      font-size: 20px;
-      color: white;
+      justify-content: space-between;
+      width: 60%;
+      margin-bottom: 0px;
+
+      #icons {
+        cursor: pointer;
+        display: none;
+      }
 
       li {
         margin-right: 25px;
+        margin-bottom: 10px;
       }
     }
   }
 }
+@media (max-width: 720px) {
+  #icons {
+    display: block;
+  }
+  #icons:before {
+    content: "\2630";
+  }
+  /* .active #icons:before{
+      content:"\2715";
+    } */
 
+  nav ul {
+    position: fixed;
+    left: -100%;
+    top: 5%;
+    flex-direction: column;
+    background: skyblue;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+  nav li {
+    padding: 3px 0;
+  }
+  nav li:hover {
+    background-color: skyblue;
+  }
+
+  nav .active ul {
+    left: 0;
+  }
+}
+/ nav mobile /
+.mobile {
+  display: flex;
+  justify-content: end;
+}
+.nav-mobile-hidden {
+  display: none;
+}
+
+.nav-mobile-show {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  background-color: rgba(139, 210, 239, 0.5);
+  margin-top: 80px;
+  width: fit-content;
+  padding: 1rem;
+  position: fixed;
+  border-radius: 0 0 0 15px;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:hover {
+  color: black;
+}
+li {
+  margin-bottom: 20px;
+}
 #accueil {
   background-image: url(../img/avion2.png);
   justify-content: center;
@@ -81,13 +167,15 @@ body {
   background-attachment: fixed;
   height: 100vh;
   display: flex;
-
-  .cards {
+.cards {
     justify-content: center;
     align-items: center;
     display: flex;
 
-    .drapeauxr {
+    .colonne {
+      display: flex;
+    }
+    .drapeaux-Rome {
       background-image: url(../img/drapeauxi.jpg);
       justify-content: center;
       background-size: cover;
@@ -97,14 +185,15 @@ body {
       height: 100px;
       margin-right: 60px;
       top: 40%;
-    }
 
-    .drapeauxr:hover {
+
+    }
+    .drapeaux-Rome:hover {
       height: 150px;
       border-radius: 0% 0% 5% 5%;
     }
 
-    .drapeauxt {
+    .drapeaux-Tunis {
       background-image: url(../img/drapeaut.jpg);
       justify-content: center;
       background-size: cover;
@@ -114,14 +203,13 @@ body {
       height: 100px;
       margin-right: 60px;
       top: 40%;
-    }
 
-    .drapeauxt:hover {
+    }
+    .drapeaux-Tunis:hover {
       height: 150px;
       border-radius: 0% 0% 5% 5%;
     }
-
-    .drapeauxm {
+.drapeaux-Monaco {
       background-image: url(../img/drapeaum.jpg);
       justify-content: center;
       background-size: cover;
@@ -130,39 +218,40 @@ body {
       width: 286px;
       height: 100px;
       margin-right: 60px;
-      top: 40%;
+      top: 40%; 
+
     }
-    .drapeauxm:hover {
+    .drapeaux-Monaco:hover {
       height: 150px;
       border-radius: 0% 0% 5% 5%;
     }
   }
 
-  .drapeauxl {
+  .drapeaux-Londres {
     background-image: url(../img/drapeauxl.jpg);
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
     width: 286px;
     height: 100px;
     margin-right: 60px;
-    top: 40%;
+    top: 40%; 
+
+
   }
 
-  .drapeauxl:hover {
+  .drapeaux-Londres:hover {
     height: 150px;
     border-radius: 0% 0% 5% 5%;
   }
-
   .radius {
     border-radius: 4% 4% 0% 0%;
   }
   .radius:hover {
     border-radius: 15% 0% 15% 0%;
   }
-  h1 {
+h1 {
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
   }
@@ -170,15 +259,16 @@ body {
   .btngo {
     height: 30px;
     width: 50px;
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
     border: 2px solid black;
+
 
     margin-left: 40%;
   }
   .btngo:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: red;
   }
   .btngo:active {
     border-color: #ffb81c;
@@ -186,81 +276,70 @@ body {
 }
 /* ------------------------------------------------------------------------------------------ */
 #fond {
-    background-image: url(../img/rome2.png);
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+  background-image: url(../img/rome2.png);
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  .assemble {
     justify-content: center;
     align-items: center;
-display: flex;
-
-.assemble {
-    justify-content: center;
-    align-items: center;
-
 .booking {
-    margin-bottom: 10px;
-    background-image: url(../img/palazo.png);
-    justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 750px;
-    height: 200px;
-    display: flex;
-
-}
-.booking1 {
-    margin-bottom: 10px;
-    background-image: url(../img/test11.png);
-    justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 750px;
-    height: 200px;
-    display: flex;
-
-}
-.booking2{
-    margin-bottom: 10px;
-    background-image: url(../img/test12.png);
-    justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 750px;
-    height: 200px;
-    display: flex;
-
-    
-
-
-}
-}
-
+      margin-bottom: 10px;
+      background-image: url(../img/palazo.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 200px;
+      display: flex;
+    }
+    .booking1 {
+      margin-bottom: 10px;
+      background-image: url(../img/test11.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 200px;
+      display: flex;
+    }
+    .booking2 {
+      margin-bottom: 10px;
+      background-image: url(../img/test12.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 200px;
+      display: flex;
+    }
+  }
 }
 .divtarif {
-    background-color: white;
-padding-top: 60px;
-text-align: center;
-    margin-left: 75%;
-    height: 180px;
-    width: 200px;
-    left: 1px;
-
-    .btnreserver {
-      border-radius: 4px;
-      padding: 7px;
-      background-color:rgba(0,108,228,255);
-      border: rgba(0,108,228,255);
-      color: white;
-
-    }
-
+  background-color: white;
+  padding-top: 60px;
+  text-align: center;
+  margin-left: 75%;
+  height: 180px;
+  width: 200px;
+  left: 1px;
+.btnreserver {
+    border-radius: 4px;
+    padding: 7px;
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
+    color: white;
+  }
 }
 /* ------------------------------------------------------------------------------------------------- */
 
@@ -274,58 +353,50 @@ text-align: center;
   height: 100vh;
   justify-content: center;
   align-items: center;
-display: flex;
-
-.assemble {
-  justify-content: center;
-  align-items: center;
-
-.bookingt {
-  margin-bottom: 5px;
-  background-image: url(../img/tunis2.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 750px;
-  height: 230px;
   display: flex;
 
+  .assemble {
+    justify-content: center;
+    align-items: center;
 
-}
-.bookingt1 {
-  margin-bottom: 5px;
-  background-image: url(../img/tunis3.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 750px;
-  height: 250px;
-  display: flex;
-
-}
-.bookingt2{
-
-  background-image: url(../img/tunis4.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 750px;
-  height: 250px;
-  display: flex;
-
-
-
-}
-}
-
+    .bookingt {
+      margin-bottom: 5px;
+      background-image: url(../img/tunis2.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 230px;
+      display: flex;
+    }
+    .bookingt1 {
+      margin-bottom: 5px;
+      background-image: url(../img/tunis3.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 250px;
+      display: flex;
+    }
+.bookingt2 {
+      background-image: url(../img/tunis4.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 750px;
+      height: 250px;
+      display: flex;
+    }
+  }
 }
 .divtarift1 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 230px;
   width: 200px;
@@ -334,32 +405,27 @@ text-align: center;
   .btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
-
   }
-
 }
 
 .divtarift2 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 250px;
   width: 200px;
   left: 1px;
-
-  .btnreserver {
+.btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
-
   }
-
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -374,56 +440,50 @@ text-align: center;
   height: 100vh;
   justify-content: center;
   align-items: center;
-display: flex;
-
-.assemble {
-  justify-content: center;
-  align-items: center;
-
-.bookingm {
-  margin-bottom: 5px;
-  background-image: url(../img/monaco1.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 230px;
   display: flex;
 
+  .assemble {
+    justify-content: center;
+    align-items: center;
 
-}
-.bookingm1 {
-  margin-bottom: 5px;
-  background-image: url(../img/monaco2.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 250px;
-  display: flex;
-
-}
-.bookingm2{
-
-  background-image: url(../img/monaco3.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 250px;
-  display: flex;
-
-}
-}
-
+    .bookingm {
+      margin-bottom: 5px;
+      background-image: url(../img/monaco1.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 230px;
+      display: flex;
+    }
+    .bookingm1 {
+      margin-bottom: 5px;
+      background-image: url(../img/monaco2.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 250px;
+      display: flex;
+    }
+.bookingm2 {
+      background-image: url(../img/monaco3.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 250px;
+      display: flex;
+    }
+  }
 }
 .divtarift1 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 230px;
   width: 200px;
@@ -432,17 +492,15 @@ text-align: center;
   .btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
-
   }
-
 }
 .divtarift2 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 250px;
   width: 200px;
@@ -451,16 +509,12 @@ text-align: center;
   .btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
-
   }
-
 }
 /* ------------------------------------------------------------------------------------------------ */
-
-
 #fondl {
   background-image: url(../img/fn2.jpg);
   justify-content: center;
@@ -471,56 +525,50 @@ text-align: center;
   height: 100vh;
   justify-content: center;
   align-items: center;
-display: flex;
-
-.assemble {
-  justify-content: center;
-  align-items: center;
-
-.bookingl {
-  margin-bottom: 5px;
-  background-image: url(../img/london.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 230px;
   display: flex;
 
+  .assemble {
+    justify-content: center;
+    align-items: center;
 
-}
-.bookingl1 {
-  margin-bottom: 5px;
-  background-image: url(../img/london2.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 255px;
-  display: flex;
-
-}
-.bookingl2{
-
-  background-image: url(../img/london3.png);
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 800px;
-  height: 260px;
-  display: flex;
-
-}
-}
-
+    .bookingl {
+      margin-bottom: 5px;
+      background-image: url(../img/london.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 230px;
+      display: flex;
+    }
+    .bookingl1 {
+      margin-bottom: 5px;
+      background-image: url(../img/london2.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 255px;
+      display: flex;
+    }
+    .bookingl2 {
+      background-image: url(../img/london3.png);
+      justify-content: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 800px;
+      height: 260px;
+      display: flex;
+    }
+  }
 }
 .divtarift1 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 230px;
   width: 200px;
@@ -529,17 +577,15 @@ text-align: center;
   .btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
-
   }
-
 }
 .divtarift3 {
   background-color: white;
-padding-top: 60px;
-text-align: center;
+  padding-top: 60px;
+  text-align: center;
   margin-left: 75%;
   height: 260px;
   width: 200px;
@@ -548,11 +594,10 @@ text-align: center;
   .btnreserver {
     border-radius: 4px;
     padding: 7px;
-    background-color:rgba(0,108,228,255);
-    border: rgba(0,108,228,255);
+    background-color: rgba(0, 108, 228, 255);
+    border: rgba(0, 108, 228, 255);
     color: white;
   }
-
 }
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -566,20 +611,13 @@ text-align: center;
   height: 100vh;
   display: flex;
   align-items: center;
-
-
 }
-
 
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
- 
-
-
 }
-
 
 .content {
   margin-right: 0px;
@@ -593,24 +631,23 @@ text-align: center;
 .avis {
   justify-content: center;
   display: flex;
-text-align: center;
-margin-bottom: 50px;
-
+  text-align: center;
+  margin-bottom: 50px;
 }
 .accueil {
   text-decoration: none;
   color: white;
 }
 .divform {
-  display: flex;
+display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
   background-color: rgba(255, 255, 255, 0.5);
   height: 200px;
   width: 500px;
-margin-left: 160px;
-margin-top: 50px;
+  margin-left: 160px;
+  margin-top: 50px;
   border-radius: 10px;
   background-image: url(../img/drapeauxfr.jpg);
   justify-content: center;
@@ -618,19 +655,90 @@ margin-top: 50px;
   background-repeat: no-repeat;
   background-position: center;
 }
-form ul {
+.formavis ul {
   list-style: none;
 }
-form input, textarea {
+.formavis .inputavis,
+.textareaavis {
   width: 300px;
 }
-form textarea {
+.formavis .textareaavis {
   height: 100px;
-
 }
 .buttonform {
   padding: 5px;
   background-color: rgb(249, 112, 112);
   background-image: url(../img/drapeauxfr.jpg);
   color: wheat;
+}
+a {
+  text-decoration: none;
+}
+/* ------------------------------------------------------------------------------- /
+@media (max-width: 1040px) {
+  .inputconect {
+    width: 100%;
+  }
+  / #accueil {
+        width: 100%;
+        height: 100%;
+      } */
+}
+@media (max-width: 1650px) {
+  .cards {
+    margin-top: 150px;
+    margin-left: 90px;
+  }
+  .card1 {
+    width: 45%;
+    height: 45%;
+  }
+.card2 {
+    width: 45%;
+    height: 45%;
+  }
+  .card3 {
+    width: 45%;
+    height: 45%;
+  }
+  .card4 {
+    width: 45%;
+    height: 45%;
+  }
+}
+
+@media (max-width: 1330px) {
+  .cards {
+    margin-top: 300px;
+
+  }
+  .colonne {
+    flex-direction: column;
+  }
+  .card1 {
+
+  }
+  .card2 {
+
+  }
+  .card3 {
+
+  }
+  .card4 {
+
+  }
+}
+
+@media (max-width: 800px) {
+  .cards {
+    margin-top: 300px;
+    margin-bottom: 60px;
+    flex-direction: column;
+  }
+  #accueil {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 425px) {
 }
