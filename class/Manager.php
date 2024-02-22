@@ -19,15 +19,6 @@ class Manager
         return $destinations;
     }
 
-    public function getDestinationById($id) {
-       $request=$this->bdd->prepare('SELECT * FROM destination WHERE id = :id');
-       $request->execute(array(
-        'id' => $id
-    ));
-    $destination = $request->fetch();
-    return $destination;
-    }
-
     function getOperatorByDestination($destinationId)
     {
 
@@ -44,15 +35,14 @@ class Manager
 
     function createReview($data)
     {
-        $request = $this->bdd->prepare('INSERT INTO review(location, price, tourOperatorId) VALUES(:location, :price, :tourOperatorId)');
+        $request = $this->bdd->prepare('INSERT INTO review(message, author,) VALUES(:message, :author,)');
         $request->execute(array(
-            'location' => $data['location'],
-            'price' => $data['price'],
-            'tourOperatorId' => $data['tourOperatorId']
+            'message' => $data['message'],
+            'auhtor' => $data['author'],
         ));
     }
 
-    public function getReviewByOperatorByOperatorid($id)
+    public function getReviewByOperatorId($id)
     {
 
         $request = $this->bdd->prepare('SELECT * FROM review WHERE tour_operator_id = :id');
@@ -64,8 +54,6 @@ class Manager
 
         return $reviews;
     }
-
-
     function getAllOperator()
     {
 
@@ -91,7 +79,7 @@ class Manager
             'grade_count' => $tourOperator->getGradeCount(),
             'link' => $tourOperator->getLink(),
             'isPremium' => $tourOperator->getIsPremium(),
-            
+
         ));
     }
 
