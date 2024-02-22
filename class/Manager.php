@@ -95,6 +95,11 @@ class Manager
     }
 
     public function getDestinationById($id) {
-        $request = $this->bdd>prepare('SELECT * FROM destination WHERE location = :id')
+        $request = $this->bdd->prepare('SELECT * FROM destination WHERE id = :id');
+
+
+        $destinations = $request->fetchAll();
+
+        return $destinations;
     }
 }
