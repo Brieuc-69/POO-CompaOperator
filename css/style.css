@@ -171,10 +171,8 @@ li {
   display: flex;
 
   .cards {
-    
-    .colonne {
-      display: flex;
-    }
+
+ 
     .drapeaux-Rome {
       background-image: url(../img/drapeauxi.jpg);
       justify-content: center;
@@ -299,6 +297,7 @@ li {
     justify-content: center;
     align-items: center;
 
+
     .booking {
       margin-bottom: 10px;
       background-image: url(../img/palazo.png);
@@ -368,6 +367,7 @@ li {
   .assemble {
     justify-content: center;
     align-items: center;
+
 
     .bookingt {
       margin-bottom: 5px;

@@ -6,7 +6,7 @@ include_once('./config/db.php');
 $manager = new Manager($db);
 
 $reviews = $manager->getReviewByOperatorId($_POST['operator_id']);
-
+var_dump($reviews);
 
 
 ?>
