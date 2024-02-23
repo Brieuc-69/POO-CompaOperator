@@ -27,7 +27,7 @@ include_once './partials/header.php';
     <title>Document</title>
 </head>
 <body>
-    div class="box d-flex justify-content-around align-items-center">
+    <div class="box d-flex justify-content-around align-items-center">
     <div class="content">
         <?php
 

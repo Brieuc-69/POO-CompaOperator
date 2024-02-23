@@ -86,9 +86,11 @@ class Manager
     public function crateDestination($data)
     {
 
-        $request = $this->bdd->prepare('INSERT INTO destination(name) VALUES(:name)');
+        $request = $this->bdd->prepare('INSERT INTO destination(location, price, tour_operator_id) VALUES(:location, :price, :tour_operator_id)');
         $request->execute(array(
-            'name' => $data['name']
+            'location' => $data['location'],
+            'price' => $data['location'],
+            'tour_operator_id' => $data['tour_operator_id'],
         ));
     }
     public function getDestinationById($id) {
