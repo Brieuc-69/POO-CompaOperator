@@ -16,4 +16,13 @@ const navmobile = document.querySelector('#nav-mobile-hidden');
 icon.addEventListener('click', () => {
     navmobile.classList.toggle('nav-mobile-hidden');
     navmobile.classList.toggle('nav-mobile-show');
+
+
+
+
 });
+
+    
+
+
+

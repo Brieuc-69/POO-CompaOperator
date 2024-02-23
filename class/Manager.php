@@ -11,7 +11,7 @@ class Manager
         $this->bdd = $bdd;
     }
 
-    function getAllDestination()
+    public function getAllDestination()
     {
 
         $request = $this->bdd->query('SELECT * FROM destination');
@@ -19,7 +19,7 @@ class Manager
         return $destinations;
     }
 
-    function getOperatorByDestination($destinationId)
+    public function getOperatorByDestination($destinationId)
     {
 
         $request = $this->bdd->prepare('SELECT * FROM tour_operator WHERE destinationId = :destinationId');
@@ -33,7 +33,7 @@ class Manager
 
 
 
-    function createReview($data)
+   public  function createReview($data)
     {
         $request = $this->bdd->prepare('INSERT INTO review(message, author,) VALUES(:message, :author,)');
         $request->execute(array(
@@ -54,9 +54,7 @@ class Manager
 
         return $reviews;
     }
-
-
-    function getAllOperator()
+    public  function getAllOperator()
     {
 
         $request = $this->bdd->query('SELECT * FROM tour_operator');
@@ -72,7 +70,7 @@ class Manager
         ));
     }
 
-    function createTourOperator(TourOperator $tourOperator)
+   public function createTourOperator(TourOperator $tourOperator)
     {
 
         $request = $this->bdd->prepare('INSERT INTO tour_operator(name, grade, link, isPremium, destinationId) VALUES(:name, :grade, :link, :isPremium, :destinationId)');
@@ -85,21 +83,28 @@ class Manager
         ));
     }
 
-    public function crateDestination($data)
+    public function createDestination(Destination $destination)
     {
 
-        $request = $this->bdd->prepare('INSERT INTO destination(name) VALUES(:name)');
+        $request = $this->bdd->prepare('INSERT INTO destination(location, price, tour_operator_id) VALUES (:location, :price, :tour_operator_id)');
         $request->execute(array(
-            'name' => $data['name']
+            'location' => $destination->getLocation(),
+            'price' => $destination->getPrice(),
+            'tour_operator_id' => $destination->getTourOeratorld(),
         ));
+
     }
 
     public function getDestinationById($id) {
         $request = $this->bdd->prepare('SELECT * FROM destination WHERE id = :id');
+        $request->execute(array(
+            'id' =>$id,
+        ));
 
-
-        $destinations = $request->fetchAll();
+        $destinations = $request->fetch();
 
         return $destinations;
     }
+
+    
 }

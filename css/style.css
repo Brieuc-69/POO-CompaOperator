@@ -1,10 +1,10 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 li {
   list-style: none;
@@ -76,7 +76,8 @@ li {
     padding: 10px;
     font-size: calc(0.5rem + 1.5vw);
     width: 100%;
-ul {
+
+    ul {
       display: flex;
       justify-content: space-between;
       width: 60%;
@@ -126,7 +127,8 @@ ul {
     left: 0;
   }
 }
-/* nav mobile */
+
+/** nav mobile **/
 .mobile {
   display: flex;
   justify-content: end;
@@ -167,7 +169,8 @@ li {
   background-attachment: fixed;
   height: 100vh;
   display: flex;
-.cards {
+
+  .cards {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -203,13 +206,15 @@ li {
       height: 100px;
       margin-right: 60px;
       top: 40%;
-
+         
     }
     .drapeaux-Tunis:hover {
       height: 150px;
       border-radius: 0% 0% 5% 5%;
     }
-.drapeaux-Monaco {
+
+
+    .drapeaux-Monaco {
       background-image: url(../img/drapeaum.jpg);
       justify-content: center;
       background-size: cover;
@@ -219,7 +224,7 @@ li {
       height: 100px;
       margin-right: 60px;
       top: 40%; 
-
+      
     }
     .drapeaux-Monaco:hover {
       height: 150px;
@@ -251,7 +256,7 @@ li {
   .radius:hover {
     border-radius: 15% 0% 15% 0%;
   }
-h1 {
+  h1 {
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
   }
@@ -290,7 +295,8 @@ h1 {
   .assemble {
     justify-content: center;
     align-items: center;
-.booking {
+
+    .booking {
       margin-bottom: 10px;
       background-image: url(../img/palazo.png);
       justify-content: center;
@@ -333,7 +339,8 @@ h1 {
   height: 180px;
   width: 200px;
   left: 1px;
-.btnreserver {
+
+  .btnreserver {
     border-radius: 4px;
     padding: 7px;
     background-color: rgba(0, 108, 228, 255);
@@ -381,7 +388,7 @@ h1 {
       height: 250px;
       display: flex;
     }
-.bookingt2 {
+    .bookingt2 {
       background-image: url(../img/tunis4.png);
       justify-content: center;
       background-size: cover;
@@ -419,7 +426,8 @@ h1 {
   height: 250px;
   width: 200px;
   left: 1px;
-.btnreserver {
+
+  .btnreserver {
     border-radius: 4px;
     padding: 7px;
     background-color: rgba(0, 108, 228, 255);
@@ -468,7 +476,7 @@ h1 {
       height: 250px;
       display: flex;
     }
-.bookingm2 {
+    .bookingm2 {
       background-image: url(../img/monaco3.png);
       justify-content: center;
       background-size: cover;
@@ -515,6 +523,7 @@ h1 {
   }
 }
 /* ------------------------------------------------------------------------------------------------ */
+
 #fondl {
   background-image: url(../img/fn2.jpg);
   justify-content: center;
@@ -639,7 +648,7 @@ h1 {
   color: white;
 }
 .divform {
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
@@ -679,10 +688,10 @@ a {
   .inputconect {
     width: 100%;
   }
-   /* #accueil {
+  /* #accueil {
         width: 100%;
         height: 100%;
-      }  */
+      } */
 }
 @media (max-width: 1650px) {
   .cards {
@@ -693,7 +702,7 @@ a {
     width: 45%;
     height: 45%;
   }
-.card2 {
+  .card2 {
     width: 45%;
     height: 45%;
   }

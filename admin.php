@@ -3,9 +3,9 @@
 include_once('./config/autoload.php');
 include_once('./config/db.php');
 
-$Alloperator = $manager-> getAllOperator($_POST['tour_operator'], $_POST['grade_totale'], $_POST['grade_count']);
+$admin = $manager-> getAllOperator();
 
-$destination = $manager->crateDestination($_POST['destination'], $_POST['price'], $_POST['tour_operator_id']);
+$admin = $manager->createDestination(array($_POST['destination'], $_POST['price'], $_POST['tour_operator_id']));
 
 
 
@@ -24,18 +24,21 @@ $destination = $manager->crateDestination($_POST['destination'], $_POST['price']
 
 <body>
 
-    <form action="./traitement/traitement.admin.php" method="post">
+
+   
+
+<form action="./traitement/traitement-tourOperator.php" method="post">
         <div class="mb-3">
             <label for="text" class="form-label">Choisis ton TourOperator</label>
-            <input type="text" class="form-control" id="tour_operator" aria-describedby="text">
+            <input type="text" class="form-control" id="tour_operator" name="name">
         </div>
         <div class="mb-3">
             <label for="text" class="form-label">Grade_total</label>
-            <input type="text" class="form-control" id="grade_total" aria-describedby="text">
+            <input type="text" class="form-control" id="grade_total" name="grade_total">
         </div>
         <div class="mb-3">
             <label for="text" class="form-label">Grade_count</label>
-            <input type="text" class="form-control" id="grade_count" aria-describedby="text">
+            <input type="text" class="form-control" id="grade_count" name="grade_count">
         </div>
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="premium">
@@ -49,20 +52,22 @@ $destination = $manager->crateDestination($_POST['destination'], $_POST['price']
     </form>
 
     <form>
+
+<form action="./traitement/traitement-destination.php" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Choix de Destination</label>
-            <input type="text" class="form-control" id="destination" aria-describedby="text">
+            <input type="text" class="form-control" id="destination" name="locations">
             <div id="text" class="form-text"></div>
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Prix</label>
-            <input type="text" class="form-control" id="price" aria-describedby="text">
-            <div id="text" class="form-text"></div>
+            <input type="text" class="form-control" id="price" name="price">
+         
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">tour_operator_id</label>
-            <input type="text" class="form-control" id="tour_operator_id" aria-describedby="text">
-            <div id="text" class="form-text"></div>
+            <input type="text" class="form-control" id="tour_operator_id" name="tour_operator_id">
+          
         </div>
 
 
@@ -70,9 +75,9 @@ $destination = $manager->crateDestination($_POST['destination'], $_POST['price']
     </form>
 
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
