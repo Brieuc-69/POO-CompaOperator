@@ -3,9 +3,11 @@
 include_once('./config/autoload.php');
 include_once('./config/db.php');
 
-$admin = $manager-> getAllOperator();
+$manager = new Manager($db);
 
-$admin = $manager->createDestination(array($_POST['destination'], $_POST['price'], $_POST['tour_operator_id']));
+$operators = $manager-> getAllOperator();
+
+
 
 
 
@@ -27,7 +29,7 @@ $admin = $manager->createDestination(array($_POST['destination'], $_POST['price'
 
    
 
-<form action="./traitement/traitement-tourOperator.php" method="post">
+<!-- <form action="./traitement/traitement-tourOperator.php" method="post">
         <div class="mb-3">
             <label for="text" class="form-label">Choisis ton TourOperator</label>
             <input type="text" class="form-control" id="tour_operator" name="name">
@@ -49,9 +51,9 @@ $admin = $manager->createDestination(array($_POST['destination'], $_POST['price'
             <label class="form-check-label" for="flexSwitchCheckChecked">Compte Premium</label>
         </div>
         <button type="submit" class="btn btn-primary">valider</button>
-    </form>
+    </form> -->
 
-    <form>
+    
 
 <form action="./traitement/traitement-destination.php" method="post">
         <div class="mb-3">
@@ -61,21 +63,21 @@ $admin = $manager->createDestination(array($_POST['destination'], $_POST['price'
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Prix</label>
-            <input type="text" class="form-control" id="price" name="price">
+            <input type="number" class="form-control" id="price" name="price">
          
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">tour_operator_id</label>
-            <input type="text" class="form-control" id="tour_operator_id" name="tour_operator_id">
+           <select name="tour_operator_id">
+                <?php foreach($operators as $operator) { ?>
+                <option value="<?php echo $operator['id'] ?>"><?php echo $operator['name'] ?></option>
+                <?php } ?>
+           </select>
           
         </div>
 
 
         <button type="submit" class="btn btn-primary">valider</button>
     </form>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

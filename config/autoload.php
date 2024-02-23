@@ -12,7 +12,7 @@
 
 function chargerClasse($classname)
 {
-    require 'class/' . $classname . '.php';
+    require __DIR__ . '/../class/' . $classname . '.php';
 }
 spl_autoload_register('chargerClasse');
 

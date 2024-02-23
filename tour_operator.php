@@ -29,10 +29,10 @@ include_once './partials/header.php';
           <div class="box d-flex justify-content-around align-items-center">
 
             <div class="content">
+              
+              <div class="card" style="width: 33,33%;">
               <?php
-
-              foreach ($allOperators as $allOperator) { ?>
-                <div class="card" style="width: 33,33%;">
+                    foreach ($allOperators as $allOperator) { ?>
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $allOperator['name'] ?></h5>
@@ -41,7 +41,6 @@ include_once './partials/header.php';
                       <input type="hidden" value="<?php echo $allOperator['id'] ?>" name="operator_id">
                       <button type="submit" class="">Voir avis</button>
                     </form>
-                    <a href="#" class="btn btn-primary">Clique ici</a>
                   </div>
                 </div>
               <?php } ?>
