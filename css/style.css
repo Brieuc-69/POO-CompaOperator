@@ -171,10 +171,7 @@ li {
   display: flex;
 
   .cards {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-
+    
     .colonne {
       display: flex;
     }
@@ -249,6 +246,12 @@ li {
   .drapeaux-Londres:hover {
     height: 150px;
     border-radius: 0% 0% 5% 5%;
+  }
+
+  .test {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
   .radius {
     border-radius: 4% 4% 0% 0%;
@@ -695,8 +698,8 @@ a {
 }
 @media (max-width: 1650px) {
   .cards {
-    margin-top: 150px;
-    margin-left: 90px;
+
+width: 20%;
   }
   .card1 {
     width: 45%;
@@ -721,9 +724,7 @@ a {
     margin-top: 300px;
 
   }
-  .colonne {
-    flex-direction: column;
-  }
+
   .card1 {
 
   }
@@ -749,5 +750,8 @@ a {
     height: 100%;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 1350px) {
+  .test {
+  flex-direction: column;
+}
 }

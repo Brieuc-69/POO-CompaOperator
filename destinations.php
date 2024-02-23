@@ -29,7 +29,7 @@ $destination = $manager->getDestinationById($_GET['id']);
 
   <ul>
     <li><a class="a" href="">Services</a></li>
-    <li><a class="a"href="./avis.php">Tours Opérateur</a></li>
+    <li><a class="a"href="./destinations.php">Tours Opérateur</a></li>
     <li><a class="a"href="">Déconnexion</a></li>
   </ul>
   <div id="icons"></div>
@@ -44,7 +44,7 @@ $destination = $manager->getDestinationById($_GET['id']);
 
   <ul>
     <li><a href="">Services</a></li>
-    <li><a href="./avis.php">Tours Opérateur</a></li>
+    <li><a href="./destinations.php">Tours Opérateur</a></li>
     <li><a href="">Déconnexion</a></li>
   </ul>
 </div>
