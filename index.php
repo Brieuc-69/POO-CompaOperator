@@ -17,7 +17,7 @@
 
     <input class="inputconect" placeholder="Pseudo" type="text">
     <div class="btnconnexion">
-    <button type="submit" name="validation">Go</button>
+    <button type="submit"  name="validation">Go</button><a href="admin.php">swfwsfwsfwfwf</a>
 </div>
 </form>
 </div>

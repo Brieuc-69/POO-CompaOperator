@@ -4,7 +4,7 @@ require_once('./config/db.php');
 $manager = new Manager($db);
 $destination = $manager->getDestinationById($_GET['id']);
 
-// var_dump($destination);
+var_dump($destination);
 
 
 ?>
